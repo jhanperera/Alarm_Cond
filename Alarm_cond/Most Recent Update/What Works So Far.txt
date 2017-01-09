@@ -1,0 +1,395 @@
+30 Message(7) A
+15 Message(9) B
+1 Message(7) D
+=======================
+35 Message(1) A
+25 Message(2) B
+1 Message(2) D
+=======================
+35 Message(1) A
+20 Message(2) B
+15 Message(3) C
+1 Message(1) D
+------------------------------------------------------------
+a.out
+Alarm> 	35 Message(1) A
+	Alarm Request Received at <1449478032>:<35 A>
+
+Alarm> 	20 Message(2) B
+	Alarm Request Received at <1449478032>:<20 B>
+
+	0x1086130:   Message(1)  Sec:35  A  Points-To:(nil)
+
+Alarm> 	15 Message(3) C
+	Alarm Request Received at <1449478036>:<15 C>
+
+	0x10861a0:   Message(2)  Sec:20  B  Points-To:0x1086130
+	0x1086130:   Message(1)  Sec:35  A  Points-To:(nil)
+
+Alarm> 	1 Message(1) D
+	Alarm Request Received at <1449478039>:<1 D>
+
+	0x1086210:   Message(3)  Sec:15  C  Points-To:0x10861a0
+	0x10861a0:   Message(2)  Sec:20  B  Points-To:0x1086130
+	0x1086130:   Message(1)  Sec:35  A  Points-To:(nil)
+
+	Alarm with Message Number(1) EXISTS! Replacing that alarm.
+
+	temp: 0x1086130:   Message(1)  A  Points-To:(nil)
+	prev: 0x10861a0
+
+Alarm> 	1 Message(1) D
+Alarm> 	15 Message(3) C
+Alarm> 	20 Message(2) B
+
+
+
+
+===========================================================
+25 Message(1) A
+20 Message(2) B
+15 Message(3) C
+10 Message(3) D
+------------------------------------------------------------
+a.out
+Alarm> 	25 Message(1) A
+	Making the alarm
+	Alarm Request Received at <1449463273>:<25 A>
+
+Alarm> 	20 Message(2) B
+	Making the alarm
+	Alarm Request Received at <1449463273>:<20 B>
+
+	0x1f6b130:   Message(1)  A  Points-To:(nil)
+
+Alarm> 	15 Message(3) C
+	Making the alarm
+	Alarm Request Received at <1449463276>:<15 C>
+
+	0x1f6b1a0:   Message(2)  B  Points-To:0x1f6b130
+	0x1f6b130:   Message(1)  A  Points-To:(nil)
+
+Alarm> 	10 Message(3) D
+	Making the alarm
+	Alarm Request Received at <1449463278>:<10 D>
+
+	0x1f6b210:   Message(3)  C  Points-To:0x1f6b1a0
+	0x1f6b1a0:   Message(2)  B  Points-To:0x1f6b130
+	0x1f6b130:   Message(1)  A  Points-To:(nil)
+
+	Alarm with Message Number(3) EXISTS! Replacing that alarm.
+
+Alarm> 	10 Message(3) D
+Alarm> 	20 Message(2) B
+Alarm> 	25 Message(1) A
+
+
+
+
+
+20 Message(1) A
+15 Message(2) B
+  
+1 Message(2) ZZZZZZZ
+
+//NEED TO ACCOUNT FOR ONLY ONE NODE	prev = null & temp->list = null
+5 Message(1) A
+1 Message(1) ZZZZZZZ
+
+Work ON:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Replacing the First Node (Last Node Entered In List)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+40 Message(1) A
+30 Message(2) B
+20 Message(3) C
+10 Message(4) D
+ 
+1 Message(4) ZZZZZZZ
+ 
+----------------------------------------------------------------
+a.out
+Alarm> 	40 Message(1) A
+	Alarm Request Received at <1449523912>:<40 A>
+
+Alarm> 	30 Message(2) B
+	Alarm Request Received at <1449523913>:<30 B>
+
+Alarm> 	20 Message(3) C
+	Alarm Request Received at <1449523916>:<20 C>
+
+	temp: 0x7d3130:   Message(1)  A  Points-To:(nil)
+	prev: (nil)
+
+	0x7d3130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm> 	10 Message(4) D
+	Alarm Request Received at <1449523922>:<10 D>
+
+	temp: 0x7d31a0:   Message(2)  B  Points-To:0x7d3130
+	prev: (nil)
+
+	temp: 0x7d3130:   Message(1)  A  Points-To:(nil)
+	prev: 0x7d31a0
+
+	0x7d31a0:   Message(2)  Sec:30  B  Points-To:0x7d3130
+	0x7d3130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm>	1 Message(4) ZZZZZZZ
+	Alarm Request Received at <1449523922>:<1 ZZZZZZZ>
+	temp: 0x7d3210:   Message(3)  C  Points-To:0x7d31a0
+	prev: (nil)
+
+	temp: 0x7d31a0:   Message(2)  B  Points-To:0x7d3130
+	prev: 0x7d3210
+
+	temp: 0x7d3130:   Message(1)  A  Points-To:(nil)
+	prev: 0x7d31a0
+
+	0x7d3210:   Message(3)  Sec:20  C  Points-To:0x7d31a0
+	0x7d31a0:   Message(2)  Sec:30  B  Points-To:0x7d3130
+	0x7d3130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm> 	1 Message(4) ZZZZZZZ
+Alarm> 	10 Message(4) D
+Alarm> 	20 Message(3) C
+Alarm> 	30 Message(2) B
+Alarm> 	40 Message(1) A
+
+
+
+
+
+================================================================
+20 Message(1) A
+15 Message(2) B
+ 
+1 Message(2) ZZZZZZZ
+----------------------------------------------------------------
+a.out
+Alarm> 	20 Message(1) A
+	Alarm Request Received at <1449523769>:<20 A>
+
+Alarm> 	15 Message(2) B
+	Alarm Request Received at <1449523770>:<15 B>
+
+Alarm> 	1 Message(2) ZZZZZZZ
+	Alarm Request Received at <1449523773>:<1 ZZZZZZZ>
+
+	temp: 0xb3d130:   Message(1)  A  Points-To:(nil)
+	prev: (nil)
+
+	0xb3d130:   Message(1)  Sec:20  A  Points-To:(nil)
+
+Alarm> 	1 Message(2) ZZZZZZZ
+Alarm> 	15 Message(2) B
+Alarm> 	20 Message(1) A
+
+================================================================
+
+
+
+
+
+
+
+WORK
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Replacing the First Node (Last Node Entered In List)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Replacing a Node In Middle (Not First/Last Node Entered In List)
+================================================================
+(EXACT MIDDLE):
+20 Message(1) A
+15 Message(2) B
+10 Message(3) C
+1 Message(2) D
+----------------------------------------------------------------
+a.out
+Alarm> 	20 Message(1) A
+	Alarm Request Received at <1449482513>:<20 A>
+
+
+Alarm> 	15 Message(2) B
+	Alarm Request Received at <1449482513>:<15 B>
+
+
+Alarm> 	10 Message(3) C
+	Alarm Request Received at <1449482516>:<10 C>
+
+	0xa71130:   Message(1)  Sec:20  A  Points-To:(nil)
+
+Alarm> 	1 Message(2) D
+	Alarm Request Received at <1449482519>:<1 D>
+
+	0xa711a0:   Message(2)  Sec:15  B  Points-To:0xa71130
+	0xa71130:   Message(1)  Sec:20  A  Points-To:(nil)
+
+
+	Alarm with Message Number(2) EXISTS! Replacing that alarm.
+
+	temp: 0xa711a0:   Message(2)  B  Points-To:0xa71130
+	prev: (nil)
+
+Alarm> 	1 Message(2) D
+Alarm> 	10 Message(3) C
+Alarm> 	20 Message(1) A
+
+================================================================
+
+(MIDDLE - LEANING TO THE FRONT OF LIST):
+40 Message(1) A
+30 Message(2) B
+20 Message(3) C
+10 Message(4) D
+1 Message(3) ZZZZZZZ
+----------------------------------------------------------------
+a.out
+Alarm> 	40 Message(1) A
+	Alarm Request Received at <1449483594>:<40 A>
+
+Alarm> 	30 Message(2) B
+	Alarm Request Received at <1449483594>:<30 B>
+
+Alarm> 	20 Message(3) C
+	Alarm Request Received at <1449483598>:<20 C>
+
+	0x1f2e130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm> 	10 Message(4) D
+	Alarm Request Received at <1449483601>:<10 D>
+
+	0x1f2e1a0:   Message(2)  Sec:30  B  Points-To:0x1f2e130
+	0x1f2e130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm> 	1 Message(3) ZZZZZZZ
+	Alarm Request Received at <1449483603>:<1 ZZZZZZZ>
+
+	0x1f2e210:   Message(3)  Sec:20  C  Points-To:0x1f2e1a0
+	0x1f2e1a0:   Message(2)  Sec:30  B  Points-To:0x1f2e130
+	0x1f2e130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+	Alarm with Message Number(3) EXISTS! Replacing that alarm.
+	
+	temp: 0x1f2e210:   Message(3)  C  Points-To:0x1f2e1a0
+	prev: (nil)
+
+Alarm> 	1 Message(3) ZZZZZZZ
+Alarm>  10 Message(4) D
+Alarm>  30 Message(2) B
+Alarm>  40 Message(1) A
+
+================================================================
+
+(MIDDLE - LEANING TO THE END OF LIST):
+40 Message(1) A
+30 Message(2) B
+20 Message(3) C
+10 Message(4) D
+1 Message(2) ZZZZZZZ
+----------------------------------------------------------------
+a.out
+Alarm> 	40 Message(1) A
+	Alarm Request Received at <1449483815>:<40 A>
+
+
+Alarm> 	30 Message(2) B
+	Alarm Request Received at <1449483816>:<30 B>
+
+
+Alarm> 	20 Message(3) C
+	Alarm Request Received at <1449483818>:<20 C>
+	0x1b56130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm> 	10 Message(4) D
+	Alarm Request Received at <1449483821>:<10 D>
+
+	0x1b561a0:   Message(2)  Sec:30  B  Points-To:0x1b56130
+	0x1b56130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+Alarm> 	1 Message(2) ZZZZZZZ
+	Alarm Request Received at <1449483824>:<1 ZZZZZZZ>
+
+	0x1b56210:   Message(3)  Sec:20  C  Points-To:0x1b561a0
+	0x1b561a0:   Message(2)  Sec:30  B  Points-To:0x1b56130
+	0x1b56130:   Message(1)  Sec:40  A  Points-To:(nil)
+
+	Alarm with Message Number(2) EXISTS! Replacing that alarm.
+
+	temp: 0x1b561a0:   Message(2)  B  Points-To:0x1b56130
+	prev: 0x1b56210
+
+Alarm> 	1 Message(2) ZZZZZZZ
+Alarm> 	10 Message(4) D
+Alarm> 	20 Message(3) C
+Alarm> 	40 Message(1) A
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Replacing the Last Node (First Node Entered In List)
+================================================================
+25 Message(1) A
+20 Message(2) B
+15 Message(3) C
+1 Message(1) D
+----------------------------------------------------------------
+a.out
+Alarm> 	25 Message(1) A
+	Alarm Request Received at <1449479745>:<25 A>
+
+Alarm> 	20 Message(2) B
+	Alarm Request Received at <1449479745>:<20 B>
+
+	0x1cfa130:   Message(1)  Sec:25  A  Points-To:(nil)
+
+Alarm> 	15 Message(3) C
+	Alarm Request Received at <1449479748>:<15 C>
+
+	0x1cfa1a0:   Message(2)  Sec:20  B  Points-To:0x1cfa130
+	0x1cfa130:   Message(1)  Sec:25  A  Points-To:(nil)
+
+Alarm> 	1 Message(1) D
+	Alarm Request Received at <1449479752>:<1 D>
+
+	0x1cfa210:   Message(3)  Sec:15  C  Points-To:0x1cfa1a0
+	0x1cfa1a0:   Message(2)  Sec:20  B  Points-To:0x1cfa130
+	0x1cfa130:   Message(1)  Sec:25  A  Points-To:(nil)
+
+	Alarm with Message Number(1) EXISTS! Replacing that alarm.
+
+	temp: 0x1cfa130:   Message(1)  A  Points-To:(nil)
+	prev: 0x1cfa1a0
+
+Alarm> 1 Message(1) D
+
+Alarm> 15 Message(3) C
+
+Alarm> 20 Message(2) B
+================================================================
+15 Message(1) A
+10 Message(2) B
+1 Message(1) D
+----------------------------------------------------------------
+a.out
+Alarm> 	15 Message(1) A
+	Alarm Request Received at <1449481516>:<15 A>
+
+
+Alarm> 	10 Message(2) B
+	Alarm Request Received at <1449481517>:<10 B>
+
+
+Alarm> 	1 Message(1) D
+	Alarm Request Received at <1449481520>:<1 D>
+
+	0x2217130:   Message(1)  Sec:15  A  Points-To:(nil)
+
+
+	Alarm with Message Number(1) EXISTS! Replacing that alarm.
+
+	temp: 0x2217130:   Message(1)  A  Points-To:(nil)
+	prev: (nil)
+
+Alarm> 1 Message(1) D
+Alarm> 10 Message(2) B
+============================================================
+------------------------------------------------------------
